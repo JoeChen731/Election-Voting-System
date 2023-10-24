@@ -1,0 +1,51 @@
+
+// Create a MySQL connection
+$conn = mysqli_connect("localhost", "username", "password", "database_name");
+
+// Check if the connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Select data from the Candidate table
+$sql = "SELECT * FROM Candidate";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // Output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "ID: " . $row["ID"]. " - Name: " . $row["Name"]. " - BIO: " . $row["BIO"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+// Select data from the Office table
+$sql = "SELECT * FROM Office";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // Output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "ID: " . $row["ID"]. " - Name: " . $row["Name"]. " - Description: " . $row["Description"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+// Select data from the Ballot table
+$sql = "SELECT * FROM Ballot";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // Output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "ID: " . $row["ID"]. " - Name: " . $row["name"]. " - Description: " . $row["description"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+// Close the MySQL connection
+mysqli_close($conn);
+?>

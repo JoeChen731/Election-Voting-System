@@ -1,0 +1,4 @@
+SetEnv DB je6095 
+SetEnv DB_PASSWORD Ephemerality1#barter
+SetEnv DB_SERVER localhost
+SetEnv DB_USER je6095
